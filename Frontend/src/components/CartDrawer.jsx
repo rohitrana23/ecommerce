@@ -1,4 +1,5 @@
 import { useState } from "react";
+<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
 import {
   X,
@@ -20,6 +21,10 @@ import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
 import api from "../services/api";
 import { loadRazorpayScript } from "../utils/loadRazorpay";
+=======
+import { X, Trash2, Plus, Minus, ArrowRight, ShoppingBag, CheckCircle, Sparkles } from "lucide-react";
+import { useCart } from "../context/CartContext";
+>>>>>>> 2847380a4d8f298fdb345e977cd04f557505e050
 
 export default function CartDrawer() {
   const {
@@ -35,6 +40,7 @@ export default function CartDrawer() {
     cartTotal
   } = useCart();
 
+<<<<<<< HEAD
   const { user, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
@@ -45,12 +51,16 @@ export default function CartDrawer() {
   const [checkoutError, setCheckoutError] = useState("");
   const [showQrScanner, setShowQrScanner] = useState(false);
   const [qrOrder, setQrOrder] = useState(null);
+=======
+  const [checkoutComplete, setCheckoutComplete] = useState(false);
+>>>>>>> 2847380a4d8f298fdb345e977cd04f557505e050
 
   if (!isCartOpen) return null;
 
   const freeShippingRemaining = Math.max(0, shippingThreshold - cartSubtotal);
   const progressPercent = Math.min(100, (cartSubtotal / shippingThreshold) * 100);
 
+<<<<<<< HEAD
   const handleClose = () => {
     if (isProcessing || isVerifying) return;
     setIsCartOpen(false);
@@ -310,6 +320,21 @@ export default function CartDrawer() {
     <>
       {/* Backdrop */}
       <div className="cart-backdrop" onClick={handleClose} />
+=======
+  const handleCheckout = () => {
+    setCheckoutComplete(true);
+    setTimeout(() => {
+      clearCart();
+      setCheckoutComplete(false);
+      setIsCartOpen(false);
+    }, 3000);
+  };
+
+  return (
+    <>
+      {/* Backdrop */}
+      <div className="cart-backdrop" onClick={() => setIsCartOpen(false)} />
+>>>>>>> 2847380a4d8f298fdb345e977cd04f557505e050
 
       {/* Drawer */}
       <div className="cart-drawer">
@@ -325,9 +350,14 @@ export default function CartDrawer() {
           <button
             type="button"
             className="cart-close-btn"
+<<<<<<< HEAD
             onClick={handleClose}
             aria-label="Close cart"
             disabled={isProcessing || isVerifying}
+=======
+            onClick={() => setIsCartOpen(false)}
+            aria-label="Close cart"
+>>>>>>> 2847380a4d8f298fdb345e977cd04f557505e050
           >
             <X size={20} />
           </button>
@@ -352,6 +382,7 @@ export default function CartDrawer() {
           </div>
         </div>
 
+<<<<<<< HEAD
         {/* Checkout Error Alert */}
         {checkoutError && (
           <div className="cart-alert-error">
@@ -560,6 +591,22 @@ export default function CartDrawer() {
                 margin: "0 auto 16px"
               }}
             >
+=======
+        {/* Content */}
+        {checkoutComplete ? (
+          <div style={{ padding: "48px 24px", textAlign: "center", margin: "auto" }}>
+            <div style={{ width: "64px", height: "64px", borderRadius: "50%", background: "rgba(16, 185, 129, 0.2)", color: "#10b981", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
+              <CheckCircle size={36} />
+            </div>
+            <h3 style={{ fontSize: "1.4rem", marginBottom: "8px" }}>Order Confirmed!</h3>
+            <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", lineHeight: "1.5" }}>
+              Thank you for shopping with ApexStore. Your premium package is now being prepared for express delivery!
+            </p>
+          </div>
+        ) : cart.length === 0 ? (
+          <div style={{ padding: "64px 24px", textAlign: "center", margin: "auto" }}>
+            <div style={{ width: "64px", height: "64px", borderRadius: "50%", background: "rgba(255, 255, 255, 0.05)", color: "var(--text-dim)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px" }}>
+>>>>>>> 2847380a4d8f298fdb345e977cd04f557505e050
               <ShoppingBag size={32} />
             </div>
             <h4 style={{ fontSize: "1.2rem", marginBottom: "8px" }}>Your bag is empty</h4>
@@ -588,7 +635,10 @@ export default function CartDrawer() {
                         <button
                           type="button"
                           className="qty-btn"
+<<<<<<< HEAD
                           disabled={isProcessing || isVerifying}
+=======
+>>>>>>> 2847380a4d8f298fdb345e977cd04f557505e050
                           onClick={() => updateQuantity(item._id, item.selectedColor, item.quantity - 1)}
                         >
                           <Minus size={13} />
@@ -597,7 +647,10 @@ export default function CartDrawer() {
                         <button
                           type="button"
                           className="qty-btn"
+<<<<<<< HEAD
                           disabled={isProcessing || isVerifying}
+=======
+>>>>>>> 2847380a4d8f298fdb345e977cd04f557505e050
                           onClick={() => updateQuantity(item._id, item.selectedColor, item.quantity + 1)}
                         >
                           <Plus size={13} />
@@ -609,6 +662,7 @@ export default function CartDrawer() {
                         </span>
                         <button
                           type="button"
+<<<<<<< HEAD
                           disabled={isProcessing || isVerifying}
                           onClick={() => removeFromCart(item._id, item.selectedColor)}
                           style={{
@@ -618,6 +672,10 @@ export default function CartDrawer() {
                             border: "none",
                             padding: 0
                           }}
+=======
+                          onClick={() => removeFromCart(item._id, item.selectedColor)}
+                          style={{ color: "var(--text-dim)", cursor: "pointer" }}
+>>>>>>> 2847380a4d8f298fdb345e977cd04f557505e050
                           title="Remove item"
                         >
                           <Trash2 size={16} />
@@ -645,6 +703,7 @@ export default function CartDrawer() {
                 <span>Total</span>
                 <span>${cartTotal.toFixed(2)}</span>
               </div>
+<<<<<<< HEAD
 
               {!isAuthenticated && (
                 <div style={{ marginBottom: "12px", fontSize: "0.82rem", color: "#fbbf24", display: "flex", alignItems: "center", gap: "6px" }}>
@@ -708,6 +767,16 @@ export default function CartDrawer() {
                 <ShieldCheck size={14} color="#10b981" />
                 <span>Secured 256-bit encrypted checkout via Razorpay</span>
               </div>
+=======
+              <button
+                type="button"
+                className="btn-primary"
+                style={{ width: "100%", padding: "14px" }}
+                onClick={handleCheckout}
+              >
+                Proceed to Checkout <ArrowRight size={18} />
+              </button>
+>>>>>>> 2847380a4d8f298fdb345e977cd04f557505e050
             </div>
           </>
         )}

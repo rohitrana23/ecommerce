@@ -8,8 +8,11 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+<<<<<<< HEAD
 import Orders from "./pages/Orders";
 import Chatbot from "./components/Chatbot";
+=======
+>>>>>>> 2847380a4d8f298fdb345e977cd04f557505e050
 import "./App.css";
 
 function AppContent() {
@@ -28,7 +31,10 @@ function AppContent() {
           />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+<<<<<<< HEAD
           <Route path="/orders" element={<Orders />} />
+=======
+>>>>>>> 2847380a4d8f298fdb345e977cd04f557505e050
           <Route
             path="*"
             element={<Home searchQuery={searchQuery} setSearchQuery={setSearchQuery} />}
@@ -41,9 +47,12 @@ function AppContent() {
       {/* Slide-out Bag Drawer */}
       <CartDrawer />
 
+<<<<<<< HEAD
       {/* Floating AI Shopping Assistant */}
       <Chatbot />
 
+=======
+>>>>>>> 2847380a4d8f298fdb345e977cd04f557505e050
       {/* Global Notification Toast */}
       {toastMessage && <div className="global-toast">{toastMessage}</div>}
     </>

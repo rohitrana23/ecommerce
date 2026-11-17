@@ -11,9 +11,12 @@ const { ensureSeedProducts } = require("./controllers/productController");
 const authRoutes = require("./routes/authRoutes");
 const productRoutes = require("./routes/productRoutes");
 const homeRoutes = require("./routes/homeRoutes");
+<<<<<<< HEAD
 const paymentRoutes = require("./routes/paymentRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const aiRoutes = require("./routes/aiRoutes");
+=======
+>>>>>>> 2847380a4d8f298fdb345e977cd04f557505e050
 
 const app = express();
 
@@ -46,6 +49,7 @@ app.use(
   })
 );
 
+<<<<<<< HEAD
 app.use(
   express.json({
     verify: (req, res, buf) => {
@@ -53,6 +57,9 @@ app.use(
     }
   })
 );
+=======
+app.use(express.json());
+>>>>>>> 2847380a4d8f298fdb345e977cd04f557505e050
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
@@ -60,10 +67,13 @@ app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/home", homeRoutes);
+<<<<<<< HEAD
 app.use("/api/payment", paymentRoutes);
 app.use("/api/payments", paymentRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/ai", aiRoutes);
+=======
+>>>>>>> 2847380a4d8f298fdb345e977cd04f557505e050
 
 // Health check / API status route
 app.get("/", (req, res) => {
@@ -73,10 +83,14 @@ app.get("/", (req, res) => {
     endpoints: {
       auth: "/api/auth (register, login, logout, me)",
       products: "/api/products (filter, search, categories, featured, seed)",
+<<<<<<< HEAD
       home: "/api/home (hero banners, categories, trending, deals, perks, stats)",
       payment: "/api/payment (create-order, verify-payment, webhook, payment-failed, orders)",
       orders: "/api/orders (user order history, order details)",
       ai: "/api/ai/chat (AI shopping assistant grounded in MongoDB)"
+=======
+      home: "/api/home (hero banners, categories, trending, deals, perks, stats)"
+>>>>>>> 2847380a4d8f298fdb345e977cd04f557505e050
     }
   });
 });

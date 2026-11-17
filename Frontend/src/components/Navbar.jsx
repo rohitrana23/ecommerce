@@ -57,6 +57,7 @@ export default function Navbar({ searchQuery, setSearchQuery }) {
               Products
             </a>
           </li>
+<<<<<<< HEAD
           {isAuthenticated && (
             <li>
               <Link to="/orders" className={`nav-link ${location.pathname === "/orders" ? "active" : ""}`}>
@@ -64,6 +65,8 @@ export default function Navbar({ searchQuery, setSearchQuery }) {
               </Link>
             </li>
           )}
+=======
+>>>>>>> 2847380a4d8f298fdb345e977cd04f557505e050
         </ul>
 
         {/* Live Search Input */}
